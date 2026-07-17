@@ -139,6 +139,101 @@
     50% { transform: translateY(-8px) rotate(3deg); }
   }
 
+  /* Precio badge debajo de la imagen */
+  .price-badge{
+    position: absolute;
+    top: 108px;
+    right: 6px;
+    z-index: 5;
+    background: var(--aji);
+    color: #fff;
+    border-radius: 12px;
+    padding: 6px 14px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(228,87,46,0.4);
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+    line-height: 1.2;
+  }
+  .price-badge .lbl{
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    opacity: 0.85;
+    display: block;
+  }
+  .price-badge .val{
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 900;
+    display: block;
+  }
+
+  /* Boton flotante musica */
+  .music-toggle{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(11,61,98,0.85);
+    color: var(--leche-tigre);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .music-toggle:hover{
+    transform: scale(1.1);
+    background: rgba(11,61,98,1);
+  }
+  .music-toggle.muted{
+    opacity: 0.5;
+  }
+
+  /* Boton PDF */
+  .btn-pdf{
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid rgba(255,248,236,0.2);
+    border-radius: 100px;
+    background: transparent;
+    color: rgba(255,248,236,0.7);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    letter-spacing: 0.05em;
+  }
+  .btn-pdf:hover{
+    border-color: var(--leche-tigre);
+    color: var(--leche-tigre);
+  }
+
+  @media print {
+    .music-toggle, .btn-pdf, .cta, .cta-whatsapp, .share-row, .signature, .wave-bg { display: none !important; }
+    body{ background: #fff; padding: 0; }
+    .ticket{ box-shadow: none; border: 1px solid #ddd; }
+    .stage{ max-width: 100%; }
+    .ceviche-image-container{ animation: none !important; }
+    .price-badge{ animation: none !important; opacity: 1 !important; }
+  }
+
   .kicker{
     display:inline-flex;
     align-items:center;
@@ -419,6 +514,10 @@
         <img src="https://www.peru.travel/Contenido/Noticia/Imagen/es/1990/1.0/Principal/ceviche-desktop.jpg" alt="Ceviche Peruano" class="ceviche-image">
       </div>
 
+      <div class="price-badge">
+        <span class="lbl">Precio</span>
+        <span class="val">S/15</span>
+      </div>
       <span class="kicker"><span class="dot"></span>Boleto solidario</span>
 
       <h1>Cevichada<br><span class="accent">Pro Fondos</span></h1>
@@ -481,17 +580,27 @@
 
       <div class="share-row" id="share-row" style="display:none;margin-top:10px;">
         <a class="cta cta-mini" id="share-status" href="#" target="_blank" rel="noopener" style="font-size:13px;background:var(--sea-deep);box-shadow:none;margin-bottom:6px;">
-          📢 Compartir en Estado
+          Compartir en Estado
         </a>
         <a class="cta cta-mini" id="share-chat" href="#" target="_blank" rel="noopener" style="font-size:13px;background:var(--sea-deep);box-shadow:none;">
-          💬 Compartir en Chat / Grupo
+          Compartir en Chat / Grupo
         </a>
       </div>
+
+      <button class="btn-pdf" id="btn-pdf">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Exportar PDF
+      </button>
     </div>
   </div>
 
   <div class="signature">Hecho con cariño para una buena causa</div>
 </div>
+
+<button class="music-toggle" id="music-toggle" title="Encender / Apagar musica">
+  <span id="music-icon">🔇</span>
+</button>
+<audio id="bg-music" src="media/musica/Ceviche-fondo.mp3" loop preload="auto"></audio>
 
 <script>
   // ═══════════════════════════════════════
@@ -511,6 +620,8 @@
     eventFull: new Date(2026, 6, 25, 10, 30, 0),
     // Número de WhatsApp del organizador (con código país, sin +)
     whatsappNumber: "519XXXXXXXX",
+    // Archivo de musica (en media/musica/)
+    musicFile: "Ceviche-fondo.mp3",
     // Texto para compartir
     shareText: "🍋 ¡Cevichada Pro Fondos! 🐟\n\nCada plato ayuda. Pide tu ceviche peruano por delivery por solo S/15.\n\nReserva acá 👉 ",
   };
@@ -583,6 +694,70 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // ═══════════════════════════════════════
+  //  MUSICA DE FONDO
+  // ═══════════════════════════════════════
+
+  const audio = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-toggle');
+  const musicIcon = document.getElementById('music-icon');
+  let isPlaying = false;
+
+  const musicFiles = [
+    'media/musica/' + CONFIG.musicFile,
+    'media/musica/Ceviche-fondo-2.mp3'
+  ];
+  let currentTrack = 0;
+
+  function loadTrack(index) {
+    audio.src = musicFiles[index];
+    if (isPlaying) {
+      audio.play();
+    }
+  }
+
+  // Click normal: play/pause
+  musicBtn.addEventListener('click', function() {
+    if (isPlaying) {
+      audio.pause();
+      musicIcon.textContent = '🔇';
+      musicBtn.classList.add('muted');
+    } else {
+      audio.play().catch(function() {});
+      musicIcon.textContent = '🎵';
+      musicBtn.classList.remove('muted');
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Doble click: siguiente cancion
+  musicBtn.addEventListener('dblclick', function(e) {
+    e.stopPropagation();
+    currentTrack = (currentTrack + 1) % musicFiles.length;
+    loadTrack(currentTrack);
+  });
+
+  // Cuando termina una cancion, pasa a la siguiente
+  audio.addEventListener('ended', function() {
+    currentTrack = (currentTrack + 1) % musicFiles.length;
+    loadTrack(currentTrack);
+  });
+
+  // Auto-play: intenta reproducir al cargar
+  audio.play().then(function() {
+    isPlaying = true;
+    musicIcon.textContent = '🎵';
+    musicBtn.classList.remove('muted');
+  }).catch(function() {});
+
+  // ═══════════════════════════════════════
+  //  EXPORTAR PDF
+  // ═══════════════════════════════════════
+
+  document.getElementById('btn-pdf').addEventListener('click', function() {
+    window.print();
+  });
 </script>
 
 </body>

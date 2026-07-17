@@ -26,233 +26,111 @@
     text-align:center;
     border:1px solid rgba(255,255,255,0.06);
   }
-  .login-box h1{
-    font-size:24px;
-    font-weight:700;
-    margin-bottom:6px;
-  }
-  .login-box p{
-    color:#8899A4;
-    font-size:14px;
-    margin-bottom:28px;
-  }
+  .login-box h1{ font-size:24px; font-weight:700; margin-bottom:6px; }
+  .login-box p{ color:#8899A4; font-size:14px; margin-bottom:28px; }
   .login-box input{
-    width:100%;
-    padding:14px 16px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.1);
-    background:#0B1A26;
-    color:#fff;
-    font-size:16px;
-    margin-bottom:16px;
-    outline:none;
+    width:100%; padding:14px 16px; border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1); background:#0B1A26;
+    color:#fff; font-size:16px; margin-bottom:16px; outline:none;
     transition:border-color 0.2s;
   }
-  .login-box input:focus{
-    border-color:#E4572E;
-  }
+  .login-box input:focus{ border-color:#E4572E; }
   .login-box button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:12px;
+    width:100%; padding:14px; border:none; border-radius:12px;
     background:linear-gradient(135deg,#E4572E,#c4431f);
-    color:#fff;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
+    color:#fff; font-size:16px; font-weight:600; cursor:pointer;
     transition:transform 0.2s;
   }
-  .login-box button:hover{
-    transform:translateY(-2px);
-  }
-  .login-box .error{
-    color:#E4572E;
-    font-size:13px;
-    margin-top:12px;
-    display:none;
-  }
+  .login-box button:hover{ transform:translateY(-2px); }
+  .login-box .error{ color:#E4572E; font-size:13px; margin-top:12px; display:none; }
 
   .dashboard{ display:none; width:100%; max-width:900px; }
   .dash-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:32px;
-    flex-wrap:wrap;
-    gap:12px;
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:32px; flex-wrap:wrap; gap:12px;
   }
-  .dash-header h1{
-    font-size:22px;
-    font-weight:700;
-  }
-  .dash-header span{
-    color:#8899A4;
-    font-size:13px;
-  }
+  .dash-header h1{ font-size:22px; font-weight:700; }
+  .dash-header span{ color:#8899A4; font-size:13px; }
   .dash-header .logout-btn{
-    background:none;
-    border:1px solid rgba(255,255,255,0.15);
-    color:#8899A4;
-    padding:8px 18px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:13px;
-    transition:all 0.2s;
+    background:none; border:1px solid rgba(255,255,255,0.15);
+    color:#8899A4; padding:8px 18px; border-radius:8px;
+    cursor:pointer; font-size:13px; transition:all 0.2s;
   }
-  .dash-header .logout-btn:hover{
-    border-color:#E4572E;
-    color:#E4572E;
-  }
+  .dash-header .logout-btn:hover{ border-color:#E4572E; color:#E4572E; }
 
   .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:14px;
-    margin-bottom:28px;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:14px; margin-bottom:28px;
   }
   .card{
-    background:#152B3B;
-    border-radius:14px;
-    padding:20px;
+    background:#152B3B; border-radius:14px; padding:20px;
     border:1px solid rgba(255,255,255,0.06);
   }
-  .card .num{
-    font-size:32px;
-    font-weight:800;
-    color:#E8D96A;
-  }
+  .card .num{ font-size:32px; font-weight:800; color:#E8D96A; }
   .card .label{
-    font-size:12px;
-    color:#8899A4;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    margin-top:4px;
+    font-size:12px; color:#8899A4; text-transform:uppercase;
+    letter-spacing:0.05em; margin-top:4px;
   }
 
   .section{
-    background:#152B3B;
-    border-radius:14px;
-    padding:24px;
-    margin-bottom:18px;
-    border:1px solid rgba(255,255,255,0.06);
+    background:#152B3B; border-radius:14px; padding:24px;
+    margin-bottom:18px; border:1px solid rgba(255,255,255,0.06);
   }
-  .section h2{
-    font-size:16px;
-    font-weight:600;
-    margin-bottom:16px;
-    color:#E8D96A;
-  }
-  .form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-  }
+  .section h2{ font-size:16px; font-weight:600; margin-bottom:16px; color:#E8D96A; }
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
   .form-grid .full{ grid-column:1/-1; }
   .form-group label{
-    display:block;
-    font-size:12px;
-    color:#8899A4;
-    margin-bottom:4px;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
+    display:block; font-size:12px; color:#8899A4; margin-bottom:4px;
+    text-transform:uppercase; letter-spacing:0.05em;
   }
-  .form-group input,.form-group textarea{
-    width:100%;
-    padding:10px 14px;
-    border-radius:8px;
-    border:1px solid rgba(255,255,255,0.1);
-    background:#0B1A26;
-    color:#fff;
-    font-size:14px;
-    outline:none;
+  .form-group input,.form-group textarea,.form-group select{
+    width:100%; padding:10px 14px; border-radius:8px;
+    border:1px solid rgba(255,255,255,0.1); background:#0B1A26;
+    color:#fff; font-size:14px; outline:none;
   }
   .form-group textarea{
-    resize:vertical;
-    min-height:60px;
-    font-family:'Inter',sans-serif;
+    resize:vertical; min-height:60px; font-family:'Inter',sans-serif;
   }
-  .form-group input:focus,.form-group textarea:focus{
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{
     border-color:#E4572E;
   }
   .btn-primary{
-    padding:12px 24px;
-    border:none;
-    border-radius:10px;
-    background:linear-gradient(135deg,#E4572E,#c4431f);
-    color:#fff;
-    font-weight:600;
-    font-size:14px;
-    cursor:pointer;
-    transition:transform 0.2s;
-    margin-top:8px;
+    padding:12px 24px; border:none; border-radius:10px;
+    background:linear-gradient(135deg,#E4572E,#c4431f); color:#fff;
+    font-weight:600; font-size:14px; cursor:pointer; transition:transform 0.2s; margin-top:8px;
   }
   .btn-primary:hover{ transform:translateY(-2px); }
   .btn-secondary{
-    padding:12px 24px;
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:10px;
-    background:transparent;
-    color:#E8E6E3;
-    font-weight:500;
-    font-size:14px;
-    cursor:pointer;
-    transition:all 0.2s;
-    text-decoration:none;
-    display:inline-block;
-    text-align:center;
+    padding:12px 24px; border:1px solid rgba(255,255,255,0.15);
+    border-radius:10px; background:transparent; color:#E8E6E3;
+    font-weight:500; font-size:14px; cursor:pointer; transition:all 0.2s;
+    text-decoration:none; display:inline-block; text-align:center;
   }
   .btn-secondary:hover{ border-color:#E4572E; color:#E4572E; }
-  .btn-group{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:12px;
-  }
+  .btn-group{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
   .code-output{
-    background:#0B1A26;
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:10px;
-    padding:16px;
-    font-family:'Courier New',monospace;
-    font-size:12px;
-    color:#7A9A3C;
-    white-space:pre-wrap;
-    word-break:break-all;
-    margin-top:12px;
-    max-height:300px;
-    overflow:auto;
-    display:none;
+    background:#0B1A26; border:1px solid rgba(255,255,255,0.08); border-radius:10px;
+    padding:16px; font-family:'Courier New',monospace; font-size:12px;
+    color:#7A9A3C; white-space:pre-wrap; word-break:break-all;
+    margin-top:12px; max-height:300px; overflow:auto; display:none;
   }
   .toast{
-    position:fixed;
-    bottom:30px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#7A9A3C;
-    color:#fff;
-    padding:12px 24px;
-    border-radius:10px;
-    font-weight:600;
-    font-size:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-    display:none;
-    z-index:999;
+    position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+    background:#7A9A3C; color:#fff; padding:12px 24px; border-radius:10px;
+    font-weight:600; font-size:14px; box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    display:none; z-index:999;
   }
-  @media(max-width:600px){
-    .form-grid{ grid-template-columns:1fr; }
-    .dash-header h1{ font-size:18px; }
-  }
+  @media(max-width:600px){ .form-grid{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 
 <div class="login-box" id="loginBox">
   <h1>Organizadores</h1>
-  <p>Ingresa la contraseña de administrador</p>
-  <input type="password" id="passwordInput" placeholder="Contraseña" autocomplete="off">
+  <p>Ingresa la contrasena de administrador</p>
+  <input type="password" id="passwordInput" placeholder="Contrasena" autocomplete="off">
   <button id="loginBtn">Entrar al panel</button>
-  <div class="error" id="loginError">Contraseña incorrecta</div>
+  <div class="error" id="loginError">Contrasena incorrecta</div>
 </div>
 
 <div class="dashboard" id="dashboard">
@@ -304,6 +182,13 @@
         <label>WhatsApp (codigo pais + numero, sin +)</label>
         <input type="text" id="cfg-whatsapp" value="519XXXXXXXX">
       </div>
+      <div class="form-group">
+        <label>Musica de fondo</label>
+        <select id="cfg-music">
+          <option value="Ceviche-fondo.mp3">Ceviche fondo 1</option>
+          <option value="Ceviche-fondo-2.mp3">Ceviche fondo 2</option>
+        </select>
+      </div>
       <div class="form-group full">
         <label>Link de Google Forms</label>
         <input type="url" id="cfg-form" value="https://docs.google.com/forms/d/e/1FAIpQLSfaER4ObH8m8okJ8nABeUD112DRQSsl-pgWT7ROec39zHecnA/viewform?usp=publish-editor">
@@ -327,18 +212,10 @@ Reserva aca 👉</textarea>
   <div class="section">
     <h2>Acciones rapidas</h2>
     <div class="btn-group">
-      <a class="btn-secondary" id="action-forms" href="#" target="_blank">
-        Ver Google Forms (respuestas)
-      </a>
-      <a class="btn-secondary" id="action-sheets" href="#" target="_blank">
-        Ver Google Sheets
-      </a>
-      <button class="btn-secondary" id="action-whatsapp">
-        Abrir WhatsApp para responder
-      </button>
-      <button class="btn-secondary" id="action-broadcast">
-        Generar link para compartir
-      </button>
+      <a class="btn-secondary" id="action-forms" href="#" target="_blank">Ver Google Forms</a>
+      <a class="btn-secondary" id="action-sheets" href="#" target="_blank">Ver Google Sheets</a>
+      <button class="btn-secondary" id="action-whatsapp">Abrir WhatsApp</button>
+      <button class="btn-secondary" id="action-broadcast">Link para compartir</button>
     </div>
   </div>
 
@@ -399,6 +276,7 @@ Reserva aca 👉</textarea>
     date: 'Sab 25 jul',
     time: '10:30 am',
     whatsapp: '519XXXXXXXX',
+    music: 'Ceviche-fondo.mp3',
     formLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfaER4ObH8m8okJ8nABeUD112DRQSsl-pgWT7ROec39zHecnA/viewform?usp=publish-editor',
     shareText: 'CEVICHADA PRO FONDOS!\n\nCada plato ayuda. Pide tu ceviche peruano por delivery por solo S/15.\n\nReserva aca 👉',
   };
@@ -410,6 +288,7 @@ Reserva aca 👉</textarea>
     document.getElementById('cfg-date').value = cfg.date;
     document.getElementById('cfg-time').value = cfg.time;
     document.getElementById('cfg-whatsapp').value = cfg.whatsapp;
+    document.getElementById('cfg-music').value = cfg.music || 'Ceviche-fondo.mp3';
     document.getElementById('cfg-form').value = cfg.formLink;
     document.getElementById('cfg-sharetext').value = cfg.shareText;
     updateStats(cfg);
@@ -427,6 +306,7 @@ Reserva aca 👉</textarea>
       date: document.getElementById('cfg-date').value,
       time: document.getElementById('cfg-time').value,
       whatsapp: document.getElementById('cfg-whatsapp').value,
+      music: document.getElementById('cfg-music').value,
       formLink: document.getElementById('cfg-form').value,
       shareText: document.getElementById('cfg-sharetext').value,
     };
@@ -443,6 +323,7 @@ Reserva aca 👉</textarea>
       '    eventTime: "' + cfg.time + '",',
       '    eventFull: new Date(2026, 6, 25, 10, 30, 0),',
       '    whatsappNumber: "' + cfg.whatsapp + '",',
+      '    musicFile: "' + (cfg.music || 'Ceviche-fondo.mp3') + '",',
       '    shareText: "' + cfg.shareText.replace(/\n/g, '\\n') + '",',
       '  };'
     ].join('\n');
@@ -456,30 +337,25 @@ Reserva aca 👉</textarea>
   });
 
   document.getElementById('copyCodeBtn').addEventListener('click', function() {
-    const code = document.getElementById('codeOutput').textContent;
-    navigator.clipboard.writeText(code).then(function() {
-      showToast('Codigo copiado al portapapeles');
-    });
+    navigator.clipboard.writeText(document.getElementById('codeOutput').textContent)
+      .then(function() { showToast('Copiado al portapapeles'); });
   });
 
   document.getElementById('action-forms').addEventListener('click', function() {
-    const link = document.getElementById('cfg-form').value;
-    if (link) window.open(link, '_blank');
+    window.open(document.getElementById('cfg-form').value, '_blank');
   });
 
   document.getElementById('action-sheets').addEventListener('click', function() {
-    const formLink = document.getElementById('cfg-form').value;
-    const match = formLink.match(/\/d\/e\/([^/]+)/);
+    var match = document.getElementById('cfg-form').value.match(/\/d\/e\/([^/]+)/);
     if (match) {
-      const sheetUrl = 'https://docs.google.com/spreadsheets/d/' + match[1];
-      window.open(sheetUrl, '_blank');
+      window.open('https://docs.google.com/spreadsheets/d/' + match[1], '_blank');
     } else {
-      showToast('No se pudo detectar el ID del formulario. Abre Google Forms > Respuestas > Ver en Sheets');
+      showToast('No se pudo detectar el ID. Abre Google Forms > Respuestas > Ver en Sheets');
     }
   });
 
   document.getElementById('action-whatsapp').addEventListener('click', function() {
-    const num = document.getElementById('cfg-whatsapp').value;
+    var num = document.getElementById('cfg-whatsapp').value;
     if (num && num !== '519XXXXXXXX') {
       window.open('https://wa.me/' + num, '_blank');
     } else {
@@ -488,21 +364,16 @@ Reserva aca 👉</textarea>
   });
 
   document.getElementById('action-broadcast').addEventListener('click', function() {
-    const shareText = document.getElementById('cfg-sharetext').value;
-    const siteUrl = window.location.origin + '/index.html';
-    const encoded = encodeURIComponent(shareText + '\n\n' + siteUrl);
-    window.open('https://wa.me/?text=' + encoded, '_blank');
+    var txt = document.getElementById('cfg-sharetext').value;
+    var url = window.location.origin + '/index.html';
+    window.open('https://wa.me/?text=' + encodeURIComponent(txt + '\n\n' + url), '_blank');
   });
 
   function showToast(msg) {
-    const toast = document.getElementById('toast');
-    toast.textContent = msg;
-    toast.style.display = 'block';
-    setTimeout(function() {
-      toast.style.display = 'none';
-    }, 3000);
+    var t = document.getElementById('toast');
+    t.textContent = msg; t.style.display = 'block';
+    setTimeout(function() { t.style.display = 'none'; }, 3000);
   }
 </script>
-
 </body>
 </html>
