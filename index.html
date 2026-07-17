@@ -202,16 +202,16 @@
 
   /* Boton PDF */
   .btn-pdf{
-    margin-top: 10px;
+    margin-top: 14px;
     width: 100%;
     padding: 12px;
-    border: 1.5px solid rgba(255,248,236,0.2);
+    border: 1.5px solid var(--sea-deep);
     border-radius: 100px;
-    background: transparent;
-    color: rgba(255,248,236,0.7);
+    background: var(--sea-deep);
+    color: var(--leche-tigre);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -221,8 +221,8 @@
     letter-spacing: 0.05em;
   }
   .btn-pdf:hover{
-    border-color: var(--leche-tigre);
-    color: var(--leche-tigre);
+    background: var(--sea-mid);
+    transform: translateY(-2px);
   }
 
   @media print {
@@ -556,11 +556,6 @@
         <div class="cd-box"><span class="num" id="cd-hours">--</span><span class="unit">Horas</span></div>
         <div class="cd-box"><span class="num" id="cd-min">--</span><span class="unit">Min</span></div>
         <div class="cd-box"><span class="num" id="cd-sec">--</span><span class="unit">Seg</span></div>
-      </div>
-
-      <div class="price-row">
-        <span class="price-label">Precio por plato</span>
-        <span class="price"><sup>S/</sup>15</span>
       </div>
 
       <p class="footer-note">
