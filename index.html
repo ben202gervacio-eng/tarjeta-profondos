@@ -225,6 +225,27 @@
     transform: translateY(-2px);
   }
 
+  @media print {
+    @page { margin: 0; size: auto; }
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      background: var(--sea-deep) !important;
+      padding: 10px !important;
+    }
+    .stage { max-width: 100% !important; }
+    .ticket {
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06) !important;
+      break-inside: avoid;
+    }
+    .music-toggle, .btn-pdf, .cta-whatsapp, .share-row, .signature { display: none !important; }
+    .cta { display: flex !important; }
+    .ceviche-image-container { animation: none !important; }
+    .price-badge { animation: none !important; opacity: 1 !important; }
+    .wave-bg { opacity: 0.35 !important; }
+  }
+
   .kicker{
     display:inline-flex;
     align-items:center;
@@ -588,7 +609,6 @@
 </button>
 <audio id="bg-music" src="media/musica/Ceviche-fondo.mp3" loop preload="auto"></audio>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
   // ═══════════════════════════════════════
   //  CONFIGURACIÓN GENERAL
@@ -743,22 +763,7 @@
   // ═══════════════════════════════════════
 
   document.getElementById('btn-pdf').addEventListener('click', function() {
-    var btn = document.getElementById('btn-pdf');
-    btn.textContent = 'Generando PDF...';
-    btn.disabled = true;
-
-    var ticket = document.querySelector('.ticket');
-    var opt = {
-      margin:       0.5,
-      filename:     'Cevichada-Pro-Fondos.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2, useCORS: true, backgroundColor: null },
-      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-    html2pdf().set(opt).from(ticket).save().then(function() {
-      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Exportar PDF';
-      btn.disabled = false;
-    });
+    window.print();
   });
 </script>
 
