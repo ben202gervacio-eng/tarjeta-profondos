@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cevichada Pro Fondos — Boleto Solidario</title>
+<meta name="description" content="Cada plato ayuda. Pide tu ceviche y súmate a esta causa — delivery, tú eliges dónde. S/15 el plato.">
+<!-- Open Graph — WhatsApp / Facebook / Telegram preview -->
+<meta property="og:title" content="Cevichada Pro Fondos — Boleto Solidario">
+<meta property="og:description" content="Cada plato ayuda. Pide tu ceviche peruano por delivery y ayuda a quien lo necesita. S/15 el plato.">
+<meta property="og:image" content="https://www.peru.travel/Contenido/Noticia/Imagen/es/1990/1.0/Principal/ceviche-desktop.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://cevichada-profondos.netlify.app">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cevichada Pro Fondos — Boleto Solidario">
+<meta name="twitter:description" content="Cada plato ayuda. Pide tu ceviche peruano por delivery. S/15 el plato.">
+<meta name="twitter:image" content="https://www.peru.travel/Contenido/Noticia/Imagen/es/1990/1.0/Principal/ceviche-desktop.jpg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  :root{
+    --sea-deep: #0B3D62;
+    --sea-mid: #14507D;
+    --paper: #FFF8EC;
+    --leche-tigre: #E8D96A;
+    --aji: #E4572E;
+    --aji-dark: #c4431f;
+    --lime: #7A9A3C;
+    --ink: #10202B;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html,body{
+    min-height:100%;
+    background: var(--sea-deep);
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink);
+    display:flex;
+    justify-content:center;
+    overflow-x:hidden;
+  }
+
+  body{
+    padding: 28px 14px 60px;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(255,255,255,0.08), transparent 55%),
+      linear-gradient(180deg, var(--sea-deep) 0%, var(--sea-mid) 100%);
+  }
+
+  .wave-bg{
+    position: fixed;
+    bottom:0; left:0; width:100%;
+    height: 220px;
+    z-index:0;
+    opacity:0.35;
+    pointer-events:none;
+    animation: waveBreathe 8s ease-in-out infinite;
+  }
+
+  @keyframes waveBreathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .stage{
+    position:relative;
+    width:100%;
+    max-width: 420px;
+    z-index:1;
+  }
+
+  .eyebrow{
+    text-align:center;
+    color: var(--leche-tigre);
+    letter-spacing: 0.35em;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity:0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.05s;
+  }
+
+  .ticket{
+    position: relative;
+    background-color: var(--paper);
+    /* Textura de papel sutil */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    border-radius: 22px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    animation: cardIn 0.8s cubic-bezier(.2,.8,.2,1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  @keyframes cardIn{ to{ opacity:1; transform: translateY(0) scale(1); } }
+  @keyframes fadeUp{ to{ opacity:1; } }
+
+  .ticket-top{
+    position:relative;
+    padding: 34px 26px 26px;
+    background: radial-gradient(circle at 85% 0%, rgba(228,87,46,0.10), transparent 60%);
+    /* Asegura que el contenido fluya correctamente */
+    z-index: 1; 
+  }
+
+  /* Contenedor de la imagen del ceviche */
+  .ceviche-image-container{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--paper);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    animation: floatCeviche 5s ease-in-out infinite;
+    z-index: 2;
+    background: #e0e0e0; /* Color de fondo mientras carga */
+  }
+
+  .ceviche-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para llenar el círculo sin deformarla */
+    object-position: center;
+  }
+
+  @keyframes floatCeviche {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+  }
+
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background: var(--sea-deep);
+    color: var(--leche-tigre);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-weight: 600;
+    position: relative;
+    z-index: 3; /* Para que esté sobre la imagen si se superponen */
+  }
+
+  .kicker span.dot{
+    width:6px;height:6px;border-radius:50%;
+    background: var(--aji);
+    display:inline-block;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 0.95;
+    margin-top: 18px;
+    color: var(--sea-deep);
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 3;
+  }
+
+  h1 .accent{
+    color: var(--aji);
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .sub{
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #3A4A52;
+    max-width: 32ch;
+    position: relative;
+    z-index: 3;
+  }
+
+  .badge-fresco {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(122, 154, 60, 0.12);
+    color: var(--lime);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-top: 14px;
+    position: relative;
+    z-index: 3;
+  }
+  .badge-fresco::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--lime);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(122, 154, 60, 0.2);
+  }
+
+  .perf{
+    position: relative;
+    height: 26px;
+    background: var(--paper);
+    z-index: 3;
+  }
+  .perf svg{
+    position:absolute;
+    top:-1px; left:0; width:100%; height:28px;
+    display:block;
+  }
+  .perf .hole{
+    position:absolute;
+    top: 8px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--sea-deep);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .perf .hole.left{ left:-13px; }
+  .perf .hole.right{ right:-13px; }
+
+  .stub{
+    padding: 8px 26px 30px;
+    background: var(--paper);
+    position: relative;
+    z-index: 3;
+  }
+
+  .details{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+
+  .detail{
+    background: rgba(11,61,98,0.04);
+    border: 1px solid rgba(11,61,98,0.08);
+    border-radius: 14px;
+    padding: 14px 14px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .detail:hover {
+    transform: translateY(-2px);
+    border-color: var(--lime);
+  }
+
+  .detail.full{ grid-column: 1 / -1; }
+
+  .detail .label{
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--aji);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .detail .value{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--sea-deep);
+    line-height:1.2;
+  }
+
+  .price-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1.5px dashed rgba(11,61,98,0.25);
+  }
+
+  .price-label{
+    font-size: 13px;
+    color:#3A4A52;
+  }
+
+  .price{
+    font-family:'Fraunces', serif;
+    font-weight: 900;
+    font-size: 38px;
+    color: var(--aji);
+    line-height:1;
+  }
+  .price sup{
+    font-size: 16px;
+    top:-1em;
+    margin-right:2px;
+  }
+
+  .countdown{
+    margin-top: 18px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .cd-box{
+    background: var(--sea-deep);
+    border-radius: 12px;
+    padding: 10px 4px;
+    text-align:center;
+    box-shadow: 0 4px 6px -2px rgba(11, 61, 98, 0.2);
+  }
+  .cd-box .num{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: 22px;
+    color: var(--leche-tigre);
+    display:block;
+    line-height:1;
+  }
+  .cd-box .unit{
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform:uppercase;
+    color: rgba(255,248,236,0.65);
+    margin-top: 4px;
+    display:block;
+  }
+
+  .footer-note{
+    margin-top: 20px;
+    text-align:center;
+    font-size: 13px;
+    color:#3A4A52;
+    line-height:1.5;
+  }
+
+  .footer-note b{ color: var(--sea-deep); }
+
+  .cta{
+    margin-top: 14px;
+    width:100%;
+    padding: 16px;
+    border:none;
+    border-radius: 100px;
+    background: linear-gradient(135deg, var(--aji) 0%, var(--aji-dark) 100%);
+    color: var(--paper);
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    cursor:pointer;
+    box-shadow: 0 10px 24px -8px rgba(228,87,46,0.55);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    gap: 8px;
+  }
+  .cta:hover{ 
+    transform: translateY(-3px) scale(1.02); 
+    box-shadow: 0 18px 35px -10px rgba(228,87,46,0.7); 
+  }
+  .cta:active{ 
+    transform: translateY(-1px) scale(0.98); 
+  }
+
+  .signature{
+    text-align:center;
+    margin-top: 22px;
+    color: rgba(255,248,236,0.55);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .eyebrow, .ticket, .wave-bg, .ceviche-image-container { animation: none !important; opacity:1 !important; transform:none !important; }
+  }
+
+  @media (max-width: 380px){
+    h1{ font-size: 36px; }
+    .price{ font-size: 32px; }
+    .ceviche-image-container{
+      width: 120px;
+      height: 120px;
+      top: -15px;
+      right: -15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<svg class="wave-bg" viewBox="0 0 500 200" preserveAspectRatio="none">
+  <path d="M0,100 C100,140 150,60 250,100 C350,140 400,60 500,100 L500,200 L0,200 Z" fill="#FFF8EC" opacity="0.06"/>
+  <path d="M0,130 C100,170 150,90 250,130 C350,170 400,90 500,130 L500,200 L0,200 Z" fill="#FFF8EC" opacity="0.10"/>
+</svg>
+
+<div class="stage">
+  <div class="eyebrow">Una causa que vale la pena</div>
+
+  <div class="ticket">
+    <div class="ticket-top">
+      <!-- IMAGEN ACTUALIZADA -->
+      <div class="ceviche-image-container">
+        <img src="https://www.peru.travel/Contenido/Noticia/Imagen/es/1990/1.0/Principal/ceviche-desktop.jpg" alt="Ceviche Peruano" class="ceviche-image">
+      </div>
+
+      <span class="kicker"><span class="dot"></span>Boleto solidario</span>
+
+      <h1>Cevichada<br><span class="accent">Pro Fondos</span></h1>
+
+      <p class="sub">Cada plato ayuda. Pide el tuyo y súmate a esta causa — se reparte por delivery, tú eliges dónde.</p>
+      
+      <div class="badge-fresco">Ingredientes frescos del día</div>
+    </div>
+
+    <div class="perf">
+      <div class="hole left"></div>
+      <div class="hole right"></div>
+      <svg viewBox="0 0 400 28" preserveAspectRatio="none">
+        <path d="M0,14 C20,4 40,24 60,14 C80,4 100,24 120,14 C140,4 160,24 180,14 C200,4 220,24 240,14 C260,4 280,24 300,14 C320,4 340,24 360,14 C380,4 400,24 400,14 L400,28 L0,28 Z" fill="#0B3D62"/>
+      </svg>
+    </div>
+
+    <div class="stub">
+      <div class="details">
+        <div class="detail">
+          <div class="label">Fecha</div>
+          <div class="value">Sáb 25 jul</div>
+        </div>
+        <div class="detail">
+          <div class="label">Hora</div>
+          <div class="value">10:30 am</div>
+        </div>
+        <div class="detail full">
+          <div class="label">Entrega</div>
+          <div class="value">Delivery — coordinamos contigo</div>
+        </div>
+      </div>
+
+      <div class="countdown" id="countdown">
+        <div class="cd-box"><span class="num" id="cd-days">--</span><span class="unit">Días</span></div>
+        <div class="cd-box"><span class="num" id="cd-hours">--</span><span class="unit">Horas</span></div>
+        <div class="cd-box"><span class="num" id="cd-min">--</span><span class="unit">Min</span></div>
+        <div class="cd-box"><span class="num" id="cd-sec">--</span><span class="unit">Seg</span></div>
+      </div>
+
+      <div class="price-row">
+        <span class="price-label">Precio por plato</span>
+        <span class="price"><sup>S/</sup>15</span>
+      </div>
+
+      <p class="footer-note">
+        Cupos limitados por día.<br>
+        <b>Reserva tu plato</b> o escríbenos por DM.
+      </p>
+
+      <a class="cta" id="reservation-cta" href="#" target="_blank" rel="noopener">
+        <span>Reservar mi plato ahora</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <button class="cta cta-whatsapp" id="share-whatsapp-btn" style="background:linear-gradient(135deg,#25D366,#128C7E);font-size:14px;margin-top:10px;box-shadow:0 10px 24px -8px rgba(37,211,102,0.5);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Compartir por WhatsApp</span>
+      </button>
+
+      <div class="share-row" id="share-row" style="display:none;margin-top:10px;">
+        <a class="cta cta-mini" id="share-status" href="#" target="_blank" rel="noopener" style="font-size:13px;background:var(--sea-deep);box-shadow:none;margin-bottom:6px;">
+          📢 Compartir en Estado
+        </a>
+        <a class="cta cta-mini" id="share-chat" href="#" target="_blank" rel="noopener" style="font-size:13px;background:var(--sea-deep);box-shadow:none;">
+          💬 Compartir en Chat / Grupo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="signature">Hecho con cariño para una buena causa</div>
+</div>
+
+<script>
+  // ═══════════════════════════════════════
+  //  CONFIGURACIÓN GENERAL
+  // ═══════════════════════════════════════
+
+  const CONFIG = {
+    // Link de Google Form para reservar
+    reservationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfaER4ObH8m8okJ8nABeUD112DRQSsl-pgWT7ROec39zHecnA/viewform?usp=publish-editor",
+    // Link del admin (cámbialo cuando subas a Netlify)
+    adminLink: "/admin.html",
+    // Precio
+    price: "S/15",
+    // Fecha del evento
+    eventDate: "Sáb 25 jul",
+    eventTime: "10:30 am",
+    eventFull: new Date(2026, 6, 25, 10, 30, 0),
+    // Número de WhatsApp del organizador (con código país, sin +)
+    whatsappNumber: "519XXXXXXXX",
+    // Texto para compartir
+    shareText: "🍋 ¡Cevichada Pro Fondos! 🐟\n\nCada plato ayuda. Pide tu ceviche peruano por delivery por solo S/15.\n\nReserva acá 👉 ",
+  };
+
+  // ═══════════════════════════════════════
+  //  RESERVAS
+  // ═══════════════════════════════════════
+
+  const ctaEl = document.getElementById('reservation-cta');
+  if(ctaEl) {
+    ctaEl.href = CONFIG.reservationLink;
+  }
+
+  // ═══════════════════════════════════════
+  //  WHATSAPP SHARING
+  // ═══════════════════════════════════════
+
+  const siteUrl = window.location.origin + window.location.pathname;
+  const encodedText = encodeURIComponent(CONFIG.shareText + siteUrl);
+
+  // Botón principal "Compartir por WhatsApp"
+  const shareBtn = document.getElementById('share-whatsapp-btn');
+  const shareRow = document.getElementById('share-row');
+
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Toggle mostrar opciones
+      if (shareRow.style.display === 'none' || shareRow.style.display === '') {
+        shareRow.style.display = 'block';
+      } else {
+        shareRow.style.display = 'none';
+      }
+    });
+  }
+
+  // Compartir en Estado (no hay API directa, abrimos WhatsApp)
+  const shareStatus = document.getElementById('share-status');
+  if (shareStatus) {
+    shareStatus.href = 'https://wa.me/?text=' + encodedText;
+  }
+
+  // Compartir en Chat / Grupo
+  const shareChat = document.getElementById('share-chat');
+  if (shareChat) {
+    shareChat.href = 'https://wa.me/?text=' + encodedText;
+  }
+
+  // ═══════════════════════════════════════
+  //  COUNTDOWN
+  // ═══════════════════════════════════════
+
+  const target = CONFIG.eventFull;
+
+  function updateCountdown(){
+    const now = new Date();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const mins = Math.floor((diff / (1000*60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-min').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-sec').textContent = String(secs).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
