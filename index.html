@@ -228,46 +228,40 @@
   }
 
   @media print {
-    @page { margin: 4mm; size: A4 portrait; }
+    @page { margin: 0; }
     html, body {
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
       color-adjust: exact !important;
       background: var(--sea-deep) !important;
-      min-height: auto !important;
-      height: auto !important;
-      padding: 0 !important;
       margin: 0 !important;
+      padding: 0 !important;
+      height: 100% !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
     }
-    .stage { max-width: 100% !important; }
+    .stage { max-width: 90% !important; }
     .ticket {
-      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
       page-break-inside: avoid !important;
-      page-break-after: avoid !important;
     }
-    .ticket-top { padding: 28px 24px 20px !important; }
-    .stub { padding: 6px 24px 18px !important; }
-    .details { gap: 10px !important; margin-top: 4px !important; }
-    .detail { padding: 10px 12px !important; }
-    .detail .value { font-size: 18px !important; }
-    .countdown { margin-top: 12px !important; gap: 6px !important; }
-    .cd-box { padding: 8px 4px !important; }
-    .cd-box .num { font-size: 20px !important; }
-    .footer-note { margin-top: 12px !important; }
-    .cta { padding: 14px !important; margin-top: 10px !important; }
-    .ceviche-image-container { animation: none !important; width: 130px !important; height: 130px !important; top: -18px !important; right: -18px !important; }
-    .price-badge { animation: none !important; opacity: 1 !important; top: 96px !important; }
-    .price-badge .val { font-size: 17px !important; }
-    .kicker { font-size: 10px !important; }
-    h1 { font-size: 40px !important; }
-    .sub { font-size: 14px !important; }
+    .ticket-top { padding: 32px 28px 22px !important; }
+    .stub { padding: 8px 28px 22px !important; }
+    h1 { font-size: 46px !important; }
+    .sub { font-size: 16px !important; }
+    .detail .value { font-size: 20px !important; }
+    .countdown { margin-top: 16px !important; }
+    .cd-box .num { font-size: 24px !important; }
+    .price { font-size: 36px !important; }
+    .cta { padding: 16px !important; font-size: 15px !important; }
+    .footer-note { font-size: 14px !important; }
+    .kicker { font-size: 11px !important; }
+    .ceviche-image-container { animation: none !important; width: 150px !important; height: 150px !important; top: -22px !important; right: -22px !important; }
+    .price-badge { animation: none !important; opacity: 1 !important; top: 110px !important; right: 8px !important; }
+    .price-badge .val { font-size: 18px !important; }
     .badge-fresco { margin-top: 10px !important; }
-    .wave-bg { display: none !important; }
-    .signature { display: none !important; }
-    .music-toggle, .btn-pdf { display: none !important; }
+    .wave-bg, .signature, .music-toggle, .btn-pdf { display: none !important; }
   }
 
   .kicker{
