@@ -228,39 +228,47 @@
   }
 
   @media print {
-    @page { margin: 0; }
+    @page { margin: 0; size: A4 portrait; }
     html, body {
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
       color-adjust: exact !important;
       background: var(--sea-deep) !important;
       margin: 0 !important;
-      padding: 0 !important;
+      padding: 10mm !important;
       height: 100% !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
     }
-    .stage { max-width: 90% !important; }
+    .stage { max-width: 100% !important; width: 100% !important; }
     .ticket {
       box-shadow: none !important;
       page-break-inside: avoid !important;
+      border-radius: 16px !important;
     }
-    .ticket-top { padding: 32px 28px 22px !important; }
-    .stub { padding: 8px 28px 22px !important; }
-    h1 { font-size: 46px !important; }
-    .sub { font-size: 16px !important; }
-    .detail .value { font-size: 20px !important; }
-    .countdown { margin-top: 16px !important; }
-    .cd-box .num { font-size: 24px !important; }
-    .price { font-size: 36px !important; }
-    .cta { padding: 16px !important; font-size: 15px !important; }
-    .footer-note { font-size: 14px !important; }
-    .kicker { font-size: 11px !important; }
-    .ceviche-image-container { animation: none !important; width: 150px !important; height: 150px !important; top: -22px !important; right: -22px !important; }
-    .price-badge { animation: none !important; opacity: 1 !important; top: 110px !important; right: 8px !important; }
-    .price-badge .val { font-size: 18px !important; }
-    .badge-fresco { margin-top: 10px !important; }
+    .ticket-top { padding: 38px 32px 28px !important; }
+    .stub { padding: 10px 32px 28px !important; }
+    h1 { font-size: 52px !important; margin-top: 14px !important; }
+    .sub { font-size: 19px !important; margin-top: 12px !important; }
+    .detail .value { font-size: 22px !important; }
+    .detail .label { font-size: 11px !important; }
+    .countdown { margin-top: 18px !important; gap: 8px !important; }
+    .cd-box { padding: 10px 6px !important; }
+    .cd-box .num { font-size: 28px !important; }
+    .cd-box .unit { font-size: 10px !important; }
+    .price { font-size: 42px !important; }
+    .price-row { margin-top: 14px !important; padding-top: 14px !important; }
+    .price-label { font-size: 15px !important; }
+    .cta { padding: 18px !important; font-size: 17px !important; margin-top: 14px !important; }
+    .footer-note { font-size: 16px !important; margin-top: 14px !important; }
+    .kicker { font-size: 12px !important; padding: 7px 14px !important; }
+    .ceviche-image-container { animation: none !important; width: 170px !important; height: 170px !important; top: -26px !important; right: -26px !important; border-width: 5px !important; }
+    .price-badge { animation: none !important; opacity: 1 !important; top: 128px !important; right: 10px !important; padding: 7px 16px !important; }
+    .price-badge .lbl { font-size: 9px !important; }
+    .price-badge .val { font-size: 21px !important; }
+    .badge-fresco { margin-top: 12px !important; font-size: 11px !important; }
+    .eyebrow { font-size: 13px !important; margin-bottom: 14px !important; }
     .wave-bg, .signature, .music-toggle, .btn-pdf { display: none !important; }
   }
 
