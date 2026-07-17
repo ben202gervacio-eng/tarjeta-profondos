@@ -45,6 +45,8 @@
     overflow-x:hidden;
   }
 
+  html{ background: var(--sea-deep); }
+
   body{
     padding: 28px 14px 60px;
     background:
@@ -227,12 +229,15 @@
 
   @media print {
     @page { margin: 0; size: auto; }
-    body {
+    html, body {
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
       color-adjust: exact !important;
       background: var(--sea-deep) !important;
-      padding: 10px !important;
+      min-height: 100vh !important;
+      height: auto !important;
+      padding: 14px !important;
+      margin: 0 !important;
     }
     .stage { max-width: 100% !important; }
     .ticket {
@@ -243,7 +248,7 @@
     .cta { display: flex !important; }
     .ceviche-image-container { animation: none !important; }
     .price-badge { animation: none !important; opacity: 1 !important; }
-    .wave-bg { opacity: 0.35 !important; }
+    .wave-bg { opacity: 0.35 !important; display: block !important; }
   }
 
   .kicker{
